@@ -45,7 +45,6 @@
 <script setup>
 const form_e = { email: "", password: "" };
 const show = true;
-const form_return = "";
 let tokentoken;
 let refreshrefresh;
 
@@ -56,7 +55,6 @@ function onSubmit() {
 }
 
 function onReset() {
-  // event.preventDefault();
   this.form_e.email = "";
   this.form_e.password = "";
   this.show = false;
@@ -95,19 +93,14 @@ async function handleSubmit() {
 async function submit_stuff() {
   console.log("submit_stuff");
   console.log({ form_e });
-  console.log({ tokentoken });
+  console.log(tokentoken);
   console.log({ refreshrefresh });
 
   let response_bus = await fetch("https://apibus.quidam.re/api/buses/1", {
     method: "GET",
-    body: JSON.stringify({
-      username: form_e.email,
-      password: form_e.password,
-    }),
-    // headers: {
-    //   Accept: "application/json",
-    //   "Content-type": "application/json; charset=UTF-8",
-    // },
+    headers: {
+      Authorization: `Bearer ${tokentoken}`,
+    },
   })
     .then((res) => res.json())
     .catch((err) => err);
