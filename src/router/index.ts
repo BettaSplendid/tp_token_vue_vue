@@ -17,6 +17,22 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
+    // {
+    //   path: "/busform",
+    //   name: "busform",
+    //   // route level code-splitting
+    //   // this generates a separate chunk (About.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import("../views/bus_views/bus_formView.vue"),
+    // },
+    {
+      path: "/zaz",
+      name: "zaz",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../components/bus/test_form_bus.vue"),
+    },
   ],
 });
 
