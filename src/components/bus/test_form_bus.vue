@@ -69,9 +69,13 @@ async function handleSubmit() {
   let response = await fetch("https://apibus.quidam.re/api/login_check", {
     method: "POST",
     body: JSON.stringify({
-      email: form_e.email,
+      username: form_e.email,
       password: form_e.password,
     }),
+    headers: {
+      Accept: "application/json",
+      "Content-type": "application/json; charset=UTF-8",
+    },
   })
     .then((res) => res.json())
     .catch((err) => err);
@@ -81,9 +85,6 @@ async function handleSubmit() {
     this.new_article = response.article_id;
   }
 }
-
-
-
 
 // export default {
 //   data() {
